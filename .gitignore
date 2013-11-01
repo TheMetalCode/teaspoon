@@ -1,6 +1,11 @@
 .rvmrc
 .bundle
 pkg
+.ruby-gemset
+.ruby-version
+.bundle/
+log/*.log
+pkg/
 tmp
 coverage
 export
