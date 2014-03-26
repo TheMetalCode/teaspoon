@@ -34,6 +34,7 @@ module Teaspoon
 
     def coverage_configuration(name)
       config = Teaspoon.configuration.coverage_configs[name]
+      binding.pry
       raise Teaspoon::UnknownCoverage, "Unknown coverage configuration \"#{name}\"" unless config.present?
       config[:instance] ||= Teaspoon::Configuration::Coverage.new(&config[:block])
     end
