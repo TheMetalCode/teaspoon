@@ -1,11 +1,12 @@
 Teaspoon
 ========
 
-[![Gem Version](https://badge.fury.io/rb/teaspoon.png)](http://badge.fury.io/rb/teaspoon)
-[![Dependency Status](https://gemnasium.com/modeset/teaspoon.png)](https://gemnasium.com/modeset/teaspoon)
-[![Build Status](https://travis-ci.org/modeset/teaspoon.png)](https://travis-ci.org/modeset/teaspoon)
-[![Code Climate](https://codeclimate.com/github/modeset/teaspoon.png)](https://codeclimate.com/github/modeset/teaspoon)
-[![Coverage Status](https://coveralls.io/repos/modeset/teaspoon/badge.png?branch=master)](https://coveralls.io/r/modeset/teaspoon?branch=master)
+[![Gem Version](https://img.shields.io/gem/v/teaspoon.svg)](http://badge.fury.io/rb/teaspoon)
+[![Dependency Status](https://img.shields.io/gemnasium/modeset/teaspoon.svg)](https://gemnasium.com/modeset/teaspoon)
+[![Build Status](https://img.shields.io/travis/modeset/teaspoon.svg)](https://travis-ci.org/modeset/teaspoon)
+[![Code Climate](https://img.shields.io/codeclimate/github/modeset/teaspoon.svg)](https://codeclimate.com/github/modeset/teaspoon)
+[![Coverage Status](https://img.shields.io/coveralls/modeset/teaspoon/master.svg)](https://coveralls.io/r/modeset/teaspoon?branch=master)
+[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 <img src="https://raw.github.com/modeset/teaspoon/master/screenshots/logo_big.png" alt="Logo by Morgan Keys" align="right" />
 <sup>Logo by [Morgan Keys](http://www.morganrkeys.com/)</sup>
@@ -14,7 +15,7 @@ Teaspoon is a Javascript test runner built for Rails. It runs tests in the brows
 
 The goal is to be simple, while still providing the most complete Javascript testing solution for Rails.
 
-Teaspoon takes advantage of the asset pipeline. And ships with support for Jasmine, Mocha, and QUnit.
+Teaspoon takes advantage of the asset pipeline. And ships with support for Jasmine, Mocha, and QUnit. *Note that Jasmine 2.0 is not supported at this time.*
 
 Ok, another Javascript test runner, right? Yeah, that's tough, but we're pretty confident Teaspoon is one of the nicest and most full featured you'll find at the moment. And if you disagree, let us know and we'll likely fix whatever it is that you didn't like.
 
@@ -22,27 +23,7 @@ Feedback, ideas and pull requests are always welcome, or you can hit us up on Tw
 
 If you'd like to use Teaspoon with [Guard](https://github.com/guard/guard), check out the [guard-teaspoon](https://github.com/modeset/guard-teaspoon) project.
 
-
-## Developer Notice
-
-The master branch deviates heavily from 0.7.9 and represents the changes that will be in 0.8. There's a good [wiki article](https://github.com/modeset/teaspoon/wiki/Changelog) about the notable changes and how you can ease the pain of upgrading.
-
-While we know that considerable changes like these can be a pain, they're not made frivolously, and they set the groundwork for what we can all build on and contribute to. There was some cleanup that needed to happen, and some polish, and in that process we tried to think about what we've learned thus far, and how we can better that for future versions. We appreciate your tolerance and willingness to help us fix anything that we missed.
-
-:heart:
-
-### 0.8.0 - follow ups / todo
-
-Here's a short list of things that 0.8.0 might also address.
-
-- add jasmine2 support
-- tests for the require js stuff (this is brittle and since we don't use requirejs, intrinsically hard)
-- hooks could be improved to specify method (get/post), and to pass params -- passing to the blocks if they have arity
-
-#### nice to haves
-
-- a more useful rake task library (like rspec https://www.relishapp.com/rspec/rspec-core/docs/command-line/rake-task)
-- rspec interface, so rspec reporters can be used
+Or, if you'd want to use [Spring](https://github.com/rails/spring) preloader, use with  [spring-commands-teaspoon](https://github.com/alejandrobabio/spring-commands-teaspoon).
 
 
 ## Screenshots
@@ -108,6 +89,10 @@ end
 
 We made some changes to how configuration and loading works for version 0.8.0, which might cause some confusion. For this we're sorry, but it'll be better in the long run -- and hey, on the up side, we didn't write a javascript test runner and then abandon it.
 
+While we know that considerable changes like these can be a pain, they're not made frivolously, and they set the groundwork for what we can all build on and contribute to. We appreciate your tolerance and willingness to help us fix anything that we missed.
+
+:heart:
+
 1. backup your `spec/teaspoon_env.rb` file.
 2. run the install generator to get the new `teaspoon_env.rb`.
 3. migrate your old settings into the new file, noting the changes that might exist.
@@ -168,7 +153,7 @@ bundle exec teaspoon --help
 
 Depending on which framework you use this can differ, and there's an expectation that you have a certain level of familiarity with your chosen test framework.
 
-Teaspoon supports [Jasmine](http://pivotal.github.com/jasmine), [Mocha](http://visionmedia.github.com/mocha) and [QUnit](http://qunitjs.com). And since it's possible to use the asset pipeline, feel free to use the `= require` directive throughout your specs and spec helpers.
+Teaspoon supports [Jasmine 1.3](http://pivotal.github.com/jasmine), [Mocha](http://visionmedia.github.com/mocha) and [QUnit](http://qunitjs.com). And since it's possible to use the asset pipeline, feel free to use the `= require` directive throughout your specs and spec helpers.
 
 Here's a basic spec written in Javascript using Jasmine:
 
@@ -432,7 +417,7 @@ When you install Teaspoon a `teaspoon_env.rb` file is generated that contains mo
   Specify the framework and optionally version you would like to use. This will do some basic setup for you -- which you can override with the directives below. This should be specified first, as it can override other directives.<br/><br/>
   <b>Note:</b> If no version is specified, the latest is assumed.<br/><br/>
 
-  <b>available:</b> jasmine[1.3.1, 2.0.0], mocha[1.10.0, 1.17.1] qunit[1.12.0, 1.14.0]<br/>
+  <b>available:</b> jasmine[1.3.1], mocha[1.10.0, 1.17.1] qunit[1.12.0, 1.14.0]<br/>
   <b>default:</b> <code>[no default]</code>
 </dd>
 
@@ -657,7 +642,7 @@ These configuration directives are applicable only when running via the rake tas
 
 <dl>
 
-<dt> output_dir </dt><dd>
+<dt> output_path </dt><dd>
   The path that the coverage should be written to - when there's an artifact to write to disk.<br/>
   <b>Note:</b> Relative to <code>config.root</code>.<br/><br/>
 
@@ -747,6 +732,23 @@ task default: [:spec, :teaspoon, :cucumber]
 If you want to generate reports that CI can use you can install Istanbul for coverage reports -- and output the report using the cobertura format, which Hudson and some others can read. You can track spec failure rates by using the tap formatter, or on TeamCity setups you can use the teamcity formatter. A junit formatter is available as well.
 
 We encourage you to experiment and let us know. Feel free to create a wiki article about what you did to get it working on your CI setup.
+
+### Selenium
+
+Some build services also support selenium based setups using Xvfb and Firefox. We've had some success doing this on CircleCI, however others may work just as well. Most of the time it should _just work_. If you are experiencing timeout's try to add a Post-dependency command to precompile your assets.
+
+```
+rake assets:precompile
+```
+
+
+## Alternative Projects
+
+[Konacha](https://github.com/jfirebaugh/konacha)
+[Jasminerice](https://github.com/bradphelan/jasminerice)
+[Evergreen](https://github.com/abepetrillo/evergreen)
+[jasmine-rails](https://github.com/searls/jasmine-rails)
+[guard-jasmine](https://github.com/netzpirat/guard-jasmine)
 
 
 ## License
